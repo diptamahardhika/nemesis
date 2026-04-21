@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend/data:/app/data
+    environment:
+      - PORT=3000
+      - CORS_ORIGIN=*
+      - SQLITE_PATH=data/dashboard.sqlite
+      - AUDIT_DATASET_DIR=dataset
+      - GEO_ROOT_PATH=seed/geo
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: always
