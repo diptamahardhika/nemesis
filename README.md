@@ -32,16 +32,18 @@ Stay tuned
 
 ### 1. Prepare the Database
 
-Download and unzip the raw dataset, then convert it to SQLite:
+Follow these steps to convert the raw jsonl data into the SQLite database:
 
-```bash
-# Convert raw jsonl data / sql data
-
-# Place the resulting .SQL file at the expected path:
-mv dashboard.sqlite backend/data/dashboard.sqlite
-
-
-```
+1. **Download** the raw dataset from the link provided in the [Downloads](#downloads) section.
+2. **Unzip** the downloaded file and move the contents to an `./outputs` folder. You will find several `.csv`, `.json`, and `.jsonl` files.
+3. **Copy** all of these files into the `./backend/dataset` directory.
+4. **Initialize the database**:
+   ```bash
+   cd backend
+   npm install
+   npm run db:reset
+   ```
+   This command will process the files in `./backend/dataset` and generate the database at `./backend/data/dashboard.sqlite`.
 
 The backend expects the database at `backend/data/dashboard.sqlite`.
 
