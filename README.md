@@ -69,6 +69,20 @@ Then open `http://127.0.0.1:8080` in your browser.
 
 The frontend is preconfigured to call the backend at `http://127.0.0.1:3000/api`.
 
+### 3. Run with Docker
+
+Alternatively, you can run the entire stack using Docker Compose. 
+
+> [!IMPORTANT]
+> You must complete **Step 1 (Prepare the Database)** on your host machine before running Docker, as the database is mounted from the host into the container.
+
+```bash
+docker compose up -d
+```
+
+- **Frontend**: `http://localhost:8080`
+- **Backend**: `http://localhost:3000`
+
 ## Notes
 
 - No frontend build step required — plain HTML/CSS/JS.
